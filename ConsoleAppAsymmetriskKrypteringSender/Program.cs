@@ -15,10 +15,8 @@ namespace ConsoleAppAsymmetriskKrypteringSender
 
             const string original = "Text";
             const string publicKeyPath = @"C:\Users\Maius\Desktop\test\publickey.xml";
-            //const string privateKeyPath = @"C:\Users\Maius\Desktop\test\privatekey.xml";
 
-
-            string[] choicesForTheUser = { "Encrypt message", "Decrypt message" };
+            string[] choicesForTheUser = { "Encrypt message" };
             gui.SetMenuHeading();
             gui.SetMenuBody(choicesForTheUser);
 
@@ -42,12 +40,11 @@ namespace ConsoleAppAsymmetriskKrypteringSender
 
                     Console.WriteLine("Original Text = " + original);
                     Console.WriteLine("Encrypted Text = \n" + Convert.ToBase64String(encrypted));
+                    foreach (var item in encrypted)
+                    {
+                        Console.Write(item + " ");
+                    }
 
-                    break;
-                case 2:
-                    //byte[] decrypted = rsa.DecryptData(privateKeyPath, encrypted);
-
-                    //Console.WriteLine("Decrypted Text = " + Encoding.Default.GetString(decrypted));
                     break;
                 default:
                     Console.ForegroundColor = ConsoleColor.Red;
